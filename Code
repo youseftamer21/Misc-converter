@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cmath>
+#include <cctype>//include cctype to use toupper command to make navigating easier
+#include <iomanip>//use this to restrict decimal numbers
+using namespace std;
+
+int main()
+{
+    char again;//variable for the while loop
+    float time;
+    float dist;
+    float temp;
+    char convert;
+    do{cout<<"Choose which conversion you wish to perform:\n";
+    cout<<"[A]Time\n"<<"[B]Distance\n"<<"[C]Temperature\n";
+    cin>>convert;
+    if (toupper(convert)=='A')
+        {cout<<"Enter your time in seconds:\n";
+        cin>>time;
+        float hours=time/3600;
+        float rem=hours-int(hours);
+            float minutes=rem*60;
+            float rem2=minutes-int(minutes);
+            int sec=rem2*60;
+            cout<<int(hours)<<" Hours\n"<< int(minutes)<<" Minutes\n"<< sec<<" Seconds\n";}
+    else if (toupper(convert)=='B')
+         {cout<<"Enter your distance in cm:\n";
+         cin>>dist;
+             float km=dist/100000;
+        float rem3=km-int(km);
+            float meters=rem3*1000;
+            float rem4=meters-int(meters);
+            int cm=rem4*100;
+             cout<<int(km)<<" Kilometers\n"<< int(meters)<<" Meters\n"<< cm<<" Centimeters\n";}
+    else if(toupper(convert)=='C')
+    {cout<<"Enter your temperature in Fahrenheit\n";
+    cin>>temp;
+    float cels=(temp-32)*5/9;
+    float kelvin=cels+273.15;
+    cout<<fixed<<setprecision(2)<<cels<<" Celsius\n"<<fixed<<setprecision(2)<<kelvin<<" Kelvin\n";
+    }
+    cout<<"Do you want to convert again?\n"<<"Y for yes, anything else for no.\n";
+    cin>>again;}
+    while (toupper(again)=='Y');
+
+
+   {
+
+}    return 0;}
+
